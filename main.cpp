@@ -12,9 +12,8 @@ private:
     int nrZileMaxImprumut;
 
 public:
-    Carte(std::string nume, std::string _autor, int _numarPagini, int _numarZileImprumut) : nume(std::move(nume))
+    Carte(std::string nume, std::string _autor, int _numarPagini, int _numarZileImprumut) : nume(std::move(nume)), autor(std::move(_autor))
     {
-        autor = std::move(_autor);
         numarPagini = _numarPagini;
         nrZileMaxImprumut = _numarZileImprumut;
     }
@@ -120,16 +119,15 @@ private:
     std::vector<Carte> cartiDeCitit;
 
 public:
-    SalaDeLectura(std::string _nume, int _numarCarti, const Bibliotecar& _bibliotecar)
+
+    SalaDeLectura(std::string _nume, int _numarCarti, const Bibliotecar& _bibliotecar) : nume(std::move(_nume))
     {
-        nume = std::move(_nume);
         numarCarti = _numarCarti;
         bibliotecar = _bibliotecar;
     }
 
-    SalaDeLectura(const SalaDeLectura &other) : nume(other.nume), cartiDeCitit(other.cartiDeCitit)
+    SalaDeLectura(const SalaDeLectura &other) : nume(other.nume), bibliotecar(other.bibliotecar), cartiDeCitit(other.cartiDeCitit)
     {
-        bibliotecar = other.bibliotecar;
         numarCarti = other.numarCarti;
     }
 
