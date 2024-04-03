@@ -272,7 +272,7 @@ public:
         }
         cartiImprumutate.push_back(carte);
         bibliotecar.imprumutaCarte(index);
-    }
+    }//asdadsadasdas
     void returneazaCarte(Carte &carte, Bibliotecar &bibliotecar, int nrZileImprumut) {
         unsigned index = -1;
         for (unsigned i = 0; i < cartiImprumutate.size(); i++) {
