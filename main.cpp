@@ -127,12 +127,10 @@ public:
         bibliotecar = _bibliotecar;
     }
 
-    SalaDeLectura(const SalaDeLectura &other)
+    SalaDeLectura(const SalaDeLectura &other) : nume(other.nume), cartiDeCitit(other.cartiDeCitit)
     {
-        nume = other.nume;
         bibliotecar = other.bibliotecar;
         numarCarti = other.numarCarti;
-        cartiDeCitit = other.cartiDeCitit;
     }
 
     SalaDeLectura &operator=(const SalaDeLectura &other)
@@ -170,12 +168,11 @@ private:
     std::vector<SalaDeLectura> salaDeLectura;
 
 public:///
-    Biblioteca(std::string _nume, int _numarCarti, int _numarBibliotecari, std::vector<SalaDeLectura> _saladelectura)
+    Biblioteca(std::string _nume, int _numarCarti, int _numarBibliotecari, std::vector<SalaDeLectura> _saladelectura):
+    nume(std::move(_nume)), salaDeLectura(std::move(_saladelectura))
     {
-        nume = std::move(_nume);
         numarCarti = _numarCarti;
         numarBibliotecari = _numarBibliotecari;
-        salaDeLectura = std::move(_saladelectura);
     }
     Biblioteca(const Biblioteca &other) : nume(other.nume), salaDeLectura(other.salaDeLectura)
     {
