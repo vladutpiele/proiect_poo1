@@ -120,10 +120,9 @@ private:
 
 public:
 
-    SalaDeLectura(std::string _nume, int _numarCarti, const Bibliotecar& _bibliotecar) : nume(std::move(_nume))
+    SalaDeLectura(std::string _nume, int _numarCarti, const Bibliotecar& _bibliotecar) : nume(std::move(_nume)), bibliotecar(_bibliotecar)
     {
         numarCarti = _numarCarti;
-        bibliotecar = _bibliotecar;
     }
 
     SalaDeLectura(const SalaDeLectura &other) : nume(other.nume), bibliotecar(other.bibliotecar), cartiDeCitit(other.cartiDeCitit)
