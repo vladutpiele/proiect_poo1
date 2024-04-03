@@ -274,7 +274,7 @@ public:
         bibliotecar.imprumutaCarte(index);
     }//asdadsadasdas
     void returneazaCarte(Carte &carte, Bibliotecar &bibliotecar, int nrZileImprumut) {
-        unsigned index = -1;
+        unsigned index = cartiImprumutate.size();
         for (unsigned i = 0; i < cartiImprumutate.size(); i++) {
             Carte it = cartiImprumutate[i];
             if (it == carte) {
@@ -282,7 +282,7 @@ public:
                 break;
             }
         }
-        if (index > -1) {
+        if (index != cartiImprumutate.size()) {
             if (nrZileImprumut > carte.maxImprumut()) {
                 valoareAmenda += 100 * (nrZileImprumut - carte.maxImprumut());
                 std::cout << nume << " a fost amendat pentru returnarea cu intarziere a cartii" << '\n';
