@@ -12,17 +12,14 @@ private:
     int nrZileMaxImprumut;
 
 public:
-    Carte(std::string NUME, std::string _autor, int _numarPagini, int _numarZileImprumut)
+    Carte(std::string nume, std::string _autor, int _numarPagini, int _numarZileImprumut) : nume(std::move(nume))
     {
-        nume = std::move(NUME);
         autor = std::move(_autor);
         numarPagini = _numarPagini;
         nrZileMaxImprumut = _numarZileImprumut;
     }
-    Carte(const Carte &other)
+    Carte(const Carte &other) : nume(other.nume), autor(other.autor)
     {
-        nume = other.nume;
-        autor = other.autor;
         numarPagini = other.numarPagini;
         nrZileMaxImprumut = other.nrZileMaxImprumut;
     }
@@ -71,17 +68,14 @@ public:
     Bibliotecar()
     = default;
 
-    [[maybe_unused]] explicit Bibliotecar(std::string _nume)
+    [[maybe_unused]] explicit Bibliotecar(std::string _nume) : nume(std::move(_nume))
     {
-        nume = std::move(_nume);
         numarGestiune = 0;
         gestiuneCarti.clear();
     }
-    Bibliotecar(const Bibliotecar &other)
+    Bibliotecar(const Bibliotecar &other) : nume(other.nume),  gestiuneCarti(other.gestiuneCarti)
     {
-        nume = other.nume;
         numarGestiune = other.numarGestiune;
-        gestiuneCarti = other.gestiuneCarti;
     }
     Bibliotecar &operator=(const Bibliotecar &other)
     = default;
@@ -183,12 +177,10 @@ public:///
         numarBibliotecari = _numarBibliotecari;
         salaDeLectura = std::move(_saladelectura);
     }
-    Biblioteca(const Biblioteca &other)
+    Biblioteca(const Biblioteca &other) : nume(other.nume), salaDeLectura(other.salaDeLectura)
     {
-        nume = other.nume;
         numarCarti = other.numarCarti;
         numarBibliotecari = other.numarBibliotecari;
-        salaDeLectura = other.salaDeLectura;
     }
     Biblioteca &operator=(const Biblioteca &other)
     = default;
@@ -215,16 +207,13 @@ private:
     int valMaxAmenda;
 
 public:
-    explicit MembruBiblioteca(std::string _nume, int _valoareAmenda, int _valMaxAmenda)
+    explicit MembruBiblioteca(std::string _nume, int _valoareAmenda, int _valMaxAmenda) : nume(std::move(_nume))
     {
-        nume = std::move(_nume);
         valoareAmenda = _valoareAmenda;
         valMaxAmenda = _valMaxAmenda;
     }
-    MembruBiblioteca(const MembruBiblioteca &other)
+    MembruBiblioteca(const MembruBiblioteca &other) : nume(other.nume), cartiImprumutate(other.cartiImprumutate)
     {
-        nume = other.nume;
-        cartiImprumutate = other.cartiImprumutate;
         valoareAmenda = other.valoareAmenda;
         valMaxAmenda = other.valMaxAmenda;
     }
@@ -299,7 +288,7 @@ public:
         if(valoareAmenda > valMaxAmenda)
         {
             std::cout << nume << " a fost amendat de prea multe ori deci nu va mai putea imprumuta carti din biblioteca" <<
-            '\n';
+                      '\n';
         }
     }
 };
