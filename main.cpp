@@ -12,9 +12,9 @@ private:
     int nrZileMaxImprumut;
 
 public:
-    Carte(std::string _nume, std::string _autor, int _numarPagini, int _numarZileImprumut)
+    Carte(std::string NUME, std::string _autor, int _numarPagini, int _numarZileImprumut)
     {
-        nume = std::move(_nume);
+        nume = std::move(NUME);
         autor = std::move(_autor);
         numarPagini = _numarPagini;
         nrZileMaxImprumut = _numarZileImprumut;
@@ -175,7 +175,7 @@ private:
     int numarBibliotecari;
     std::vector<SalaDeLectura> salaDeLectura;
 
-public:
+public:///
     Biblioteca(std::string _nume, int _numarCarti, int _numarBibliotecari, std::vector<SalaDeLectura> _saladelectura)
     {
         nume = std::move(_nume);
