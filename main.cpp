@@ -102,7 +102,7 @@ public:
     ~Bibliotecar() = default;
 
     std::vector<Carte> CartileDinGestiune()
-    {//a
+    {
         return gestiuneCarti;
     }
     void imprumutaCarte(unsigned idx)
