@@ -1,4 +1,11 @@
-Tema1 presupune gestionarea unei biblioteci, ce contine cate o entitate pentru fiecare din urmatoarele : biblioteca, sala de lectura, bibliotecar, membru biblioteca (sau client, cel care imprumuta carti si le returneaza).
+
+
+  Gestionarea unei biblioteci.
+
+
+
+
+Tema_1 presupune gestionarea unei biblioteci, ce contine cate o entitate pentru fiecare din urmatoarele : biblioteca, sala de lectura, bibliotecar, membru biblioteca (sau client, cel care imprumuta carti si le returneaza).
 Un membru de la biblioteca, imprumuta sau returneaza carti, pana in momentul in care acesta a fost amendat de mai multe ori pentru intarzierea repetata la returnarea cartilor.
 
 ### Important!
